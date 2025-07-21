@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS          # <--- Importa flask_cors
 import joblib
 import numpy as np
 
 app = Flask(__name__)
+CORS(app)   # <--- Habilita CORS para cualquier origen (útil para pruebas con React/Render)
 
 # Cargar modelo entrenado
 modelo = joblib.load('modelo_randomforest_gias.pkl')
@@ -10,7 +12,6 @@ modelo = joblib.load('modelo_randomforest_gias.pkl')
 # Variables esperadas por el modelo
 columnas = [
     'nivel_compromiso_financiero',
-
     'tiene_ingreso_fijo',
     'puntual_en_ahorros_previos',
     'ingreso_mensual_aprox',
