@@ -38,7 +38,6 @@ def predecir():
 
     return jsonify({
         'es_buen_pagador': int(prediccion),
-        'probabilidad': round(probabilidad, 4)
     })
 
 if __name__ == '__main__':
